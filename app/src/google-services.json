@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "898011284733",
+    "project_id": "villagemart-4ada3",
+    "storage_bucket": "villagemart-4ada3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898011284733:android:563e1c6eddd4744ef12a94",
+        "android_client_info": {
+          "package_name": "com.example.villagemart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBIvp5lrLQ4mcEmwxO2_APjWPJrEFRqcDk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

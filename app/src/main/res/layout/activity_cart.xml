@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MenuFiles.CartActivity">
+
+    <Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#E453AEF6"
+        android:id="@+id/cart_toolbar">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="My Cart"
+            android:textColor="@color/black"
+            android:textSize="28dp"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:fontFamily="sans-serif-condensed-medium" />
+    </Toolbar>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/cart_list"
+        android:layout_width="fill_parent"
+        android:layout_height="0dp"
+        android:padding="10dp"
+        android:layout_below="@id/cart_toolbar"
+        android:layout_above="@+id/coupon_section"
+        android:layout_weight="1" />
+
+    <!-- Coupon Section -->
+    <LinearLayout
+        android:id="@+id/coupon_section"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="10dp"
+        android:layout_above="@id/llTotal"
+        android:background="@android:color/white"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/editTextCoupon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Enter Coupon Code"
+            android:inputType="number"
+            android:padding="12dp"
+            android:layout_marginBottom="8dp" />
+
+        <Button
+            android:id="@+id/buttonApplyCoupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apply Coupon"
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center" />
+
+        <Button
+            android:id="@+id/buttonGenerateCoupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Generate Coupon"
+            android:padding="12dp"
+            android:textColor="@android:color/white"
+            android:layout_gravity="center"
+            android:layout_marginTop="8dp" />
+
+        <TextView
+            android:id="@+id/textViewDiscount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Discount Applied: "
+            android:layout_marginTop="8dp"
+            android:textSize="16sp"
+            android:visibility="gone" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_above="@+id/llBottom"
+        android:id="@+id/llTotal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingBottom="10dp"
+        android:paddingTop="10dp"
+        android:weightSum="1">
+
+        <TextView
+            android:layout_width="0dip"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.75"
+            android:gravity="center_vertical|end"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:textSize="20dp"
+            android:text="Total Price:"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/totalprice"
+            android:layout_width="0dip"
+            android:padding="10dp"
+            android:textSize="20dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.25"
+            android:gravity="center"
+            android:text=""
+            android:textStyle="bold" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/llBottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/next_button"
+            android:layout_width="0dip"
+            android:layout_height="50dp"
+            android:layout_weight="0.5"
+            android:background="#E453AEF6"
+            android:text="BUY NOW"
+            android:paddingBottom="10dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textStyle="bold" />
+    </LinearLayout>
+</RelativeLayout>
