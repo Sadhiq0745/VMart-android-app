@@ -86,7 +86,6 @@ public class ProductDetails extends AppCompatActivity {
 
         int id = intent.getIntExtra("id", 1);
         uniqueId = intent.getStringExtra("uniqueId");
-
         relCategory = productCategory.getText().toString();
 
         if (id == 1) {

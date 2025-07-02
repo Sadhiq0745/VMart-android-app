@@ -12,11 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
-import com.example.villagemart.R;
 
-import com.example.villagemart.model.Users;
-import com.example.villagemart.HomeActivity;
-import com.example.villagemart.LoginActivity;
 import com.example.villagemart.model.Users;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -26,29 +22,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import android.Manifest;
-import android.app.KeyguardManager;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.security.keystore.KeyGenParameterSpec;
-import android.security.keystore.KeyProperties;
-import android.util.Log;
-import android.widget.Toast;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-import androidx.core.content.ContextCompat;
-
-import com.google.firebase.auth.FirebaseAuth;
-
-import java.security.KeyStore;
-
-import javax.crypto.Cipher;
-import javax.crypto.KeyGenerator;
-import javax.crypto.SecretKey;
-
 
 public class RegisterActivity extends AppCompatActivity {
 
@@ -61,13 +34,6 @@ public class RegisterActivity extends AppCompatActivity {
     LinearLayout signInText;
     String imgUri;
     ProgressDialog progressDialog;
-    private static final String KEY_NAME = "my_key";
-    private static final int REQUEST_CODE = 101;
-
-    private KeyStore keyStore;
-    private KeyGenerator keyGenerator;
-    private Cipher cipher;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 DatabaseReference reference = database.getReference().child("users").child(auth.getUid());
                                 StorageReference storageReference = storage.getReference().child("upload").child(auth.getUid());
 
-                                imgUri = "https://firebasestorage.googleapis.com/v0/b/shopstop-9aef0.appspot.com/o/profilepicicon.jpg?alt=media&token=7ed59cae-6970-4292-a028-fde789214ac1";
+                                imgUri = "https://firebasestorage.googleapis.com/v0/b/villagemart-4ada3.appspot.com/o/profilepicicon.png?alt=media&token=a86a6e4b-a01d-49e6-965b-1c6d015f49b2";
                                 Users users = new Users(auth.getUid(), name, email, imgUri);
                                 reference.setValue(users).addOnCompleteListener(new OnCompleteListener<Void>() {
                                     @Override
@@ -147,72 +113,6 @@ public class RegisterActivity extends AppCompatActivity {
             }
         });
 
-        /*@Override
-protected void onStart() {
-    super.onStart();
-    checkBiometricSupport();
-}
-
-private void checkBiometricSupport() {
-    KeyguardManager keyguardManager = (KeyguardManager) getSystemService(KEYGUARD_SERVICE);
-    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-        if (!keyguardManager.isKeyguardSecure()) {
-            Toast.makeText(this, "Lock screen security not enabled", Toast.LENGTH_SHORT).show();
-            return;
-        }
-        if (ContextCompat.checkSelfPermission(this, Manifest.permission.USE_BIOMETRIC) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.USE_BIOMETRIC}, REQUEST_CODE);
-        } else {
-            generateKey();
-            if (cipherInit()) {
-                FingerprintHelper helper = new FingerprintHelper(this);
-                helper.startAuth(mAuth);
-            }
-        }
-    }
-}
-
-private boolean cipherInit() {
-    try {
-        cipher = Cipher.getInstance(KeyProperties.KEY_ALGORITHM_AES + "/"
-                + KeyProperties.BLOCK_MODE_CBC + "/"
-                + KeyProperties.ENCRYPTION_PADDING_PKCS7);
-    } catch (Exception e) {
-        Log.e("Fingerprint", "Cipher initialization failed: " + e);
-        return false;
-    }
-
-    try {
-        keyStore.load(null);
-        SecretKey key = (SecretKey) keyStore.getKey(KEY_NAME, null);
-        cipher.init(Cipher.ENCRYPT_MODE, key);
-        return true;
-    } catch (Exception e) {
-        Log.e("Fingerprint", "Failed to init Cipher: " + e);
-        return false;
-    }
-}
-
-private void generateKey() {
-    try {
-        keyStore = KeyStore.getInstance("AndroidKeyStore");
-        keyGenerator = KeyGenerator.getInstance(KeyProperties.KEY_ALGORITHM_AES, "AndroidKeyStore");
-        keyStore.load(null);
-        keyGenerator.init(new KeyGenParameterSpec.Builder(KEY_NAME,
-                KeyProperties.PURPOSE_ENCRYPT |
-                        KeyProperties.PURPOSE_DECRYPT)
-                .setBlockModes(KeyProperties.BLOCK_MODE_CBC)
-                .setUserAuthenticationRequired(true)
-                .setEncryptionPaddings(
-                        KeyProperties.ENCRYPTION_PADDING_PKCS7)
-                .build());
-        keyGenerator.generateKey();
-    } catch (Exception e) {
-        Log.e("Fingerprint", "Failed to generate key: " + e);
-    }
-}
-*/
-
         signInText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -221,8 +121,6 @@ private void generateKey() {
             }
         });
 
-
     }
-
 
 }

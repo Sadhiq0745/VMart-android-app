@@ -15,9 +15,9 @@
 
         <ImageView
             android:layout_width="100dp"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:layout_gravity="center"
-            android:src="@drawable/amazon"
+            android:src="@drawable/intrologo"
             android:scaleX="3"
             android:scaleY="3"/>
 

@@ -47,7 +47,7 @@ public class SearchActivity extends BaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // setContentView(R.layout.activity_search);             //This is Written for the functionof the base buttons at bottom
+       // setContentView(R.layout.activity_search);             //This is Written for the function of the base buttons at bottom
 
         dynamicContent=findViewById(R.id.dynamicContent);
         bottomNavBar=findViewById(R.id.bottomNavBar);
@@ -77,7 +77,7 @@ public class SearchActivity extends BaseActivity {
 
         searchList.setLayoutManager(new LinearLayoutManager(SearchActivity.this));
 
-        searchBtn.setOnClickListener(new View.OnClickListener() {                           //This is the search area where we enter value and it stores in the variable
+        searchBtn.setOnClickListener(new View.OnClickListener() {                            //This is the search area where we enter value and it stores in the variable
             @Override                                                                        //Then retriving the data by the search using the Onstart()
             public void onClick(View v) {
                 searchInput = inputText.getEditableText().toString();

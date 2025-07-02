@@ -57,8 +57,6 @@ dependencies {
     implementation("de.hdodenhof:circleimageview:3.1.0")
 
     implementation("com.razorpay:checkout:1.6.36")
-
-
     implementation("androidx.biometric:biometric:1.2.0-alpha04")
 
 

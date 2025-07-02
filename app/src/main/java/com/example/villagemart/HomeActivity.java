@@ -42,6 +42,8 @@ import java.util.HashMap;
 
 import androidx.appcompat.widget.Toolbar;
 
+import org.jetbrains.annotations.NotNull;
+
 public class HomeActivity extends BaseActivity {
 
     Toolbar toolbar;
@@ -114,8 +116,8 @@ public class HomeActivity extends BaseActivity {
         viewAll = findViewById(R.id.viewAllProducts);
         home_cart = findViewById(R.id.home_cart);
 
-        intentcart=getIntent();
-        if(intentcart.getStringExtra("cartadd")!=null && intentcart.getStringExtra("cartadd").equals("yes")){      //changingn the cart image when product added
+        intentcart = getIntent();
+        if (intentcart.getStringExtra("cartadd") != null && intentcart.getStringExtra("cartadd").equals("yes")) {      //changingn the cart image when product added
             home_cart.setImageResource(R.drawable.cart_notif);
         } else if (intentcart.getStringExtra("cartadd") != null && intentcart.getStringExtra("cartadd").equals("no")) {
             home_cart.setImageResource(R.drawable.cart);
@@ -197,7 +199,12 @@ public class HomeActivity extends BaseActivity {
                 startActivity(i);
             }
         });
+
+
         //This is for the list of the products in the Home page while scrolling
+
+
+
         ListView lvProducts = findViewById(R.id.productslist);
         ProductAdapter productAdapter = new ProductAdapter(this);
         productAdapter.updateProducts(Constant.PRODUCT_LIST);
@@ -241,7 +248,40 @@ public class HomeActivity extends BaseActivity {
 
             }
         });
+      //  addingToProdList();
 
     }
-}
+//    private void addingToProdList() {
+//        String saveCurrentDate, saveCurrentTime;
+//        Calendar calendar = Calendar.getInstance();
+//        SimpleDateFormat currentDate = new SimpleDateFormat("MM dd, yyyy");
+//        saveCurrentDate = currentDate.format(calendar.getTime());
+//        SimpleDateFormat currentTime = new SimpleDateFormat("HH:mm:ss a");
+//        saveCurrentTime = currentTime.format(calendar.getTime());
+//
+//        DatabaseReference prodListRef = FirebaseDatabase.getInstance().getReference().child("View All");
+//        String name="redgram";
+//
+//        final HashMap<String, Object> prodMap = new HashMap<>();
+//        prodMap.put("pid",name );
+//        prodMap.put("name", name);
+//        prodMap.put("price", "₹155");
+//        prodMap.put("category", "Food");
+//        prodMap.put("description","Popular Red gram | 1kg Pack | Rich Source of Protein | No Cholesterol or Additives");
+//        prodMap.put("date", saveCurrentDate);
+//        prodMap.put("time", saveCurrentTime);
+//        prodListRef.child("User View").child("Products")
+//                .child(name).updateChildren(prodMap)
+//                .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                    @Override
+//                    public void onComplete(@NonNull @NotNull Task<Void> task) {
+//                        if(task.isSuccessful()){
+//                            Log.i("Task","successfull");
+//
+//                        }
+//                    }
+//                });
+
+    }
+
 
